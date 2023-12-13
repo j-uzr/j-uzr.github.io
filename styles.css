@@ -1,15 +1,36 @@
 /* GENERAL STYLING */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap'); /* Imports google font */
+
+/* 
+    Universal Selector - Used to select all items in HTML file (Lowest Precedence)
+
+    This can be useful for applying a broad style (like resetting margins and paddings to zero) 
+
+    Targets every single element on the DOM, including <html>, <body>, <div>, <span> and etc
+    It applies its affect to each element explicitly (aka not through inheritance)
+*/ 
 
 * {
     margin: 0;
     padding: 0;
 }
 
+/* Body Selector - Used to select the main content of an HTML document */
+
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* All fonts within body set to Poppins */
 }
+
+/* 
+    HTML Selector - Used to apply an affect to the entire page through inheritance
+
+    Commonly used to set global styles that are specific to the whole page, such as
+    font-family, background-color, or in your example, the scroll-behavior.
+
+    Essentially it cascades to other elements in html doc, unless overridden by more specific rules
+    However, some elements do not inherit by default, such as margin or padding
+*/
 
 html {
     scroll-behavior: smooth;
@@ -27,13 +48,21 @@ a, .btn {
 
 /* DESKTOP NAV */
 
+/* 
+    Any element that is a <nav> will become a flex container.
+    Any element that has the class nav-links will also become a flex container.
+    
+    These are treated as separate instances. If .nav-links is inside a nav, 
+    it means you are creating a flex container inside another flex container.
+*/
+
 nav, .nav-links {
-    display: flex;
+    display: flex; /* Initiates a flex container, enabling the use of Flexbox properties on that element and its children */
 }
 
 nav {
-    justify-content: space-around; /* */
-    align-items: center; /* */
+    justify-content: space-around; /* Horizontally space about evenly */
+    align-items: center; /* Vertical Center, given view height*/
     height: 17vh; /* Essentially has the "nav bar" takes up 17% of the screen regardless of size in pixels */
 }
 
@@ -62,4 +91,84 @@ a:hover {
 
 .logo:hover{
     cursor: default;
+}
+
+/* HAMBURGER MENU */
+
+#hamburger-nav {
+    display: none;
+}
+
+.hamburger-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.hamburger-icon span {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: all 0.3 ease-in-out;
+}
+
+.menu-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    width: fit-content;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3 ease-in-out;
+}
+
+.menu-links a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3 ease-in-out;
+}
+
+.menu-links li {
+    list-style: none;
+}
+
+.menu-links.open {
+    max-height: 300px;
+}
+
+.hamburger-icon.open span:first-child {
+    transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+    transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.hamburger-icon span:first-child {
+    transform: none;
+}
+
+.hamburger-icon span:first-child {
+    opacity: 1;
+}
+
+.hamburger-icon span:first-child {
+    transform: none;
 }
