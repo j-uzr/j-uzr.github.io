@@ -7,6 +7,10 @@
     .about-containers {
         flex-wrap: wrap;
     }
+
+    #contact, #projects {
+        height: fit-content;
+    }
 }
 
 @media screen and (max-width: 1200px){
@@ -76,7 +80,7 @@
         margin: 0;
     }
 
-    .contact-info-container p, .nav-links a {
+    .contact-info-container p, .nav-links li a {
         font-size: 1rem;
     }
 
