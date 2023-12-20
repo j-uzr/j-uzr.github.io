@@ -115,4 +115,8 @@
     .text-container {
         text-align: justify;
     }
+
+    .linkedin-icon {
+        padding-left: 0.5em;
+    }
 }
