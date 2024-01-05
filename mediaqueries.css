@@ -22,6 +22,11 @@
         display: flex;
     }
 
+    .about-me-pic {
+        max-width: 150%;
+        max-height: 150%;
+    }
+
     #experience, .experience-details-container {
         margin-top: 2rem;
     }
