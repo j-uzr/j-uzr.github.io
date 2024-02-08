@@ -22,9 +22,14 @@
         display: flex;
     }
 
+    .section__pic-container {
+        display: flex;
+        justify-content: center;
+    }
+
     .about-me-pic {
-        max-width: 150%;
-        max-height: 150%;
+        max-width: 100%; 
+        height: auto;
     }
 
     #experience, .experience-details-container {
